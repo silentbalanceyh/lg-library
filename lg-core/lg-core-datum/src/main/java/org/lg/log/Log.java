@@ -57,7 +57,7 @@ public final class Log {
 	}
 
 	/** Error format **/
-	private static String format(@Max(-10000) final int code, final Object... params) {
+	public static String format(@Max(-10000) final int code, final Object... params) {
 		final String key = "E" + Math.abs(code);
 		final StringBuilder message = new StringBuilder(Defaults.BUFFER_SIZE);
 		message.append(Symbols.LEFT_SQ_BRACKET).append(key).append(Symbols.RIGHT_SQ_BRACKET);

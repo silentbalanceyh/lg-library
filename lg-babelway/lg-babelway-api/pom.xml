@@ -8,4 +8,12 @@
 	</parent>
 	<artifactId>lg-babelway-api</artifactId>
 	<name>Tradeshift Babelway Api</name>
+	<dependencies>
+		<!-- Project reference -->
+		<dependency>
+			<groupId>org.lg</groupId>
+			<artifactId>lg-core-datum</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+	</dependencies>
 </project>
