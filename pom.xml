@@ -8,15 +8,15 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.lg</groupId>
+	<groupId>org.lg</groupId>
 	<artifactId>lg-parent</artifactId>
 	<packaging>pom</packaging>
 	<version>1.0-SNAPSHOT</version>
-	<name>Ts Training Server Tier ( POM )</name>
+	<name>Tradeshift Library Package ( POM )</name>
 	<modules>
+		<module>lg-ubl</module>
 		<module>lg-babelway</module>
-		<module>lg-web</module>
-		<module>lg-kit</module>
+		<module>lg-core</module>
 	</modules>
 	<properties>
 		<!-- Default Properties -->
@@ -180,6 +180,7 @@
 				</executions>
 			</plugin>
 			<!-- AJDT Compile -->
+			<!-- 
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>aspectj-maven-plugin</artifactId>
@@ -200,7 +201,6 @@
 					<complianceLevel>${java.version}</complianceLevel>
 					<source>${java.version}</source>
 					<target>${java.version}</target>
-					<!-- Remove Warning: Xlint:typeNotExposedToWeaver -->
 					<Xlint>ignore</Xlint>
 					<weaveWithAspectsInMainSourceFolder>true</weaveWithAspectsInMainSourceFolder>
 				</configuration>
@@ -224,7 +224,7 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>
+			</plugin> -->
 		</plugins>
 	</build>
 </project>
