@@ -7,4 +7,6 @@ public interface Defaults {
 	int ONE = 1;
 	/** **/
 	int ZERO = 0;
+	/** **/
+	int INDEX = ZERO;
 }

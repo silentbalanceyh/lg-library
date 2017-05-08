@@ -17,6 +17,7 @@
 		<module>lg-core</module>
 		<module>lg-babelway</module>
 		<module>lg-ubl</module>
+		<module>lg-suit</module>
 	</modules>
 	<properties>
 		<!-- Default Properties -->
@@ -48,7 +49,7 @@
 		<hk2.version>2.5.0-b32</hk2.version>
 		<!-- Asm Version -->
 		<asm.version>5.1</asm.version>
-		
+
 		<!-- ========== SLF4j Version ====================== -->
 		<!-- SLF4j Api -->
 		<!-- http://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
@@ -143,6 +144,22 @@
 	<dependencyManagement>
 		<!-- Manage dependency version to avoid jar conflicts -->
 		<dependencies>
+			<!-- Tradeshift Project Reference -->
+			<dependency>
+				<groupId>org.lg</groupId>
+				<artifactId>lg-core-connector</artifactId>
+				<version>${project.parent.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.lg</groupId>
+				<artifactId>lg-core-datum</artifactId>
+				<version>${project.parent.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.lg</groupId>
+				<artifactId>lg-core-hors</artifactId>
+				<version>${project.parent.version}</version>
+			</dependency>
 			<!-- Slf4j Version -->
 			<dependency>
 				<groupId>org.slf4j</groupId>

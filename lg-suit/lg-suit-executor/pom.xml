@@ -3,16 +3,23 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.lg</groupId>
-		<artifactId>lg-babelway</artifactId>
+		<artifactId>lg-suit</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
-	<artifactId>lg-babelway-api</artifactId>
-	<name>Tradeshift Babelway Api</name>
+	<artifactId>lg-suit-executor</artifactId>
+	<name>Tradeshift Executor Container</name>
 	<dependencies>
-		<!-- Connector interface reference -->
+		<!-- Babelway Connector -->
 		<dependency>
 			<groupId>org.lg</groupId>
-			<artifactId>lg-core-connector</artifactId>
+			<artifactId>lg-babelway-api</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+		<!-- Ubl20 Connector -->
+		<dependency>
+			<groupId>org.lg</groupId>
+			<artifactId>lg-ubl-api</artifactId>
+			<version>${project.parent.version}</version>
 		</dependency>
 	</dependencies>
 </project>

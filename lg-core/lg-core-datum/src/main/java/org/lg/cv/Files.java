@@ -14,5 +14,7 @@ public interface Files {
 	interface Prop{
 		/** **/
 		String ERROR = "errors" + Ext.DOT_PROP;
+		/** **/
+		String CONNECTOR = "connector" + Ext.DOT_PROP;
 	}
 }

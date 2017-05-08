@@ -13,7 +13,6 @@
 		<dependency>
 			<groupId>org.lg</groupId>
 			<artifactId>lg-core-datum</artifactId>
-			<version>${project.parent.version}</version>
 		</dependency>
 	</dependencies>
 </project>
