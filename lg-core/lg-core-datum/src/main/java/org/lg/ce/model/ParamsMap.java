@@ -1,5 +1,7 @@
 package org.lg.ce.model;
 
+import java.util.Set;
+
 import org.lg.ce.json.JsonObject;
 
 // Simple parameter maps
@@ -13,7 +15,6 @@ public class ParamsMap {
 	}
 
 	public ParamsMap() {
-
 	}
 
 	public void put(final String key, final Object value) {
@@ -27,6 +28,10 @@ public class ParamsMap {
 			ret = (T) reference;
 		}
 		return ret;
+	}
+	
+	public Set<String> keys(){
+		return this.parameters.fieldNames();
 	}
 
 	public JsonObject getRaw() {

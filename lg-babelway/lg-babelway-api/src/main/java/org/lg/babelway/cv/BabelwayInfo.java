@@ -9,4 +9,9 @@ public interface BabelwayInfo {
 	String KEY_USERNAME = "babelway.username";
 	String KEY_PASSWORD = "babelway.password";
 	String KEY_HUB_ID = "babelway.hub.id";
+	// Babelway configuration folder
+	interface Folder{
+		// normalization folder
+		String NORMALIZATION = "normalization";
+	}
 }

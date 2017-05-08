@@ -6,11 +6,11 @@ import org.lg.em.ErrorType;
  * Babelway exception
  */
 public abstract class AbstractBabelwayException extends AbstractException {
-	public AbstractBabelwayException(String message) {
-		super(message);
+	public AbstractBabelwayException(final int code, final Object... params) {
+		super(code, params);
 	}
-	
-	public ErrorType getErrorType(){
+
+	public ErrorType getErrorType() {
 		return ErrorType.BABELWAY;
 	}
 }
