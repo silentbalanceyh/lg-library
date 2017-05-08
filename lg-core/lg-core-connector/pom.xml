@@ -3,16 +3,16 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.lg</groupId>
-		<artifactId>lg-babelway</artifactId>
+		<artifactId>lg-core</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
-	<artifactId>lg-babelway-api</artifactId>
-	<name>Tradeshift Babelway Api</name>
+	<artifactId>lg-core-connector</artifactId>
+	<name>Tradeshift Core Connector Interface</name>
 	<dependencies>
-		<!-- Connector interface reference -->
+		<!-- Project reference -->
 		<dependency>
 			<groupId>org.lg</groupId>
-			<artifactId>lg-core-connector</artifactId>
+			<artifactId>lg-core-datum</artifactId>
 			<version>${project.parent.version}</version>
 		</dependency>
 	</dependencies>

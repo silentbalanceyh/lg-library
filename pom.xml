@@ -14,9 +14,9 @@
 	<version>1.0-SNAPSHOT</version>
 	<name>Tradeshift Library Package ( POM )</name>
 	<modules>
-		<module>lg-ubl</module>
-		<module>lg-babelway</module>
 		<module>lg-core</module>
+		<module>lg-babelway</module>
+		<module>lg-ubl</module>
 	</modules>
 	<properties>
 		<!-- Default Properties -->
