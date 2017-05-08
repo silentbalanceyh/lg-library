@@ -9,6 +9,8 @@ public interface Files {
 		String DOT_JAVA = ".java";
 		/** .properties **/
 		String DOT_PROP = ".properties";
+		/** .json **/
+		String DOT_JSON = ".json";
 	}
 
 	interface Prop{
