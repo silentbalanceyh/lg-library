@@ -16,11 +16,16 @@
 
 package org.lg.ce.json;
 
-import java.time.Instant;
-import java.util.*;
-import java.util.stream.Stream;
-
 import static java.time.format.DateTimeFormatter.ISO_INSTANT;
+
+import java.time.Instant;
+import java.util.ArrayList;
+import java.util.Base64;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.stream.Stream;
 
 /**
  * A representation of a <a href="http://json.org/">JSON</a> array in Java.
@@ -616,7 +621,6 @@ public class JsonArray implements Iterable<Object> {
 		}
 		return new JsonArray(copiedList);
 	}
-
 	/**
 	 * Get a Stream over the entries in the JSON array
 	 *

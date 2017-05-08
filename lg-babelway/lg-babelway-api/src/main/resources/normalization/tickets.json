@@ -31,15 +31,5 @@
 			"_5_3_PLANNED_CLEANING_OF_DORMANT_USERS",
 			"_5_4_INVITATION_EXPIRED"
 		]
-	},
-	"TIME":{
-		"since":"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-		"before":"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-	},
-	"RANGE":{
-		"start":{"min":0}
-	},
-	"TEXT":[
-		"description"
-	]
+	}
 }

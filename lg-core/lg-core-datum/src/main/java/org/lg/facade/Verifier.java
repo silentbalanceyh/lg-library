@@ -10,6 +10,9 @@ public interface Verifier {
 	AbstractException verify(ParamsMap input, JsonObject definition);
 	
 	interface Names {
+		// Required
 		String REQUIRED = "REQUIRED";
+		// In
+		String IN = "IN";
 	}
 }

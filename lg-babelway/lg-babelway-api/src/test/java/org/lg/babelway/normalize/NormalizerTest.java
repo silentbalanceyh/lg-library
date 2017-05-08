@@ -13,7 +13,7 @@ public class NormalizerTest {
 
 	@Test(expected = NormalizerException.class)
 	public void testTicket() throws AbstractException {
-		final Normalizer normalizer = Instance.singleton(TicketNormalizer.class);
+		final Normalizer normalizer = Instance.singleton(TicketsNormalizer.class);
 		final JsonObject input = IOKit.getJObject("test-normalization/ticket-data.json");
 		final ParamsMap params = new ParamsMap(input);
 		normalizer.normalize(params);

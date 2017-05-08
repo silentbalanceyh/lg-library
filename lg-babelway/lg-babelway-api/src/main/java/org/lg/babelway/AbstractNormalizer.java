@@ -32,9 +32,10 @@ public abstract class AbstractNormalizer implements Normalizer {
 			AbstractException error = verifier.verify(params, definition);
 			if (null != error) {
 				// Error replacement
-				error = new NormalizerException(this.getAction(), error.getErrorMessage());
+				final String message = error.getErrorMessage();
+				error = new NormalizerException(this.getAction(), message);
 				// Logger
-				Log.tsError(getLogger(), error, this.getAction(), error.getErrorMessage());
+				Log.tsError(getLogger(), error);
 				throw error;
 			}
 		}

@@ -21,15 +21,17 @@ import net.sf.oval.guard.Guarded;
 public final class Log {
 
 	private static Properties ERRORS = DatumLoader.get(Files.Prop.ERROR);
+
 	/** JVM Error spec **/
 	public static void jvmError(@NotNull final Logger logger, @NotNull final Throwable ex) {
 		error(logger, Pattern.E_JVM, ex.getClass().getName(), ex.getMessage());
 	}
+
 	/** Ts Error spec **/
 	public static void tsError(@NotNull final Logger logger, @NotNull final AbstractException ex,
 			final Object... params) {
 		final String key = "E" + ex.getErrorCode();
-		final String message = format(ex.getErrorCode(), params);
+		final String message = ex.getErrorMessage();
 		error(logger, Pattern.E_TS, key, ex.getClass().getName(), message);
 	}
 
