@@ -22,10 +22,16 @@ public final class Instance {
 	public static <T> T instance(final String className, final Object... params) {
 		final Class<?> clazz = Metadata.clazz(className);
 		T ret = null;
+		if (null != clazz) {
+			ret = instance(clazz, params);
+		}
+		return ret;
+	}
+
+	public static <T> T instance(final Class<?> clazz, final Object... params) {
+		T ret = null;
 		try {
-			if (null != clazz) {
-				ret = construct(clazz, params);
-			}
+			ret = construct(clazz, params);
 		} catch (SecurityException ex) {
 			Log.jvmError(LOGGER, ex);
 		} catch (Exception ex) {
@@ -35,6 +41,10 @@ public final class Instance {
 	}
 
 	// Singleton method and put cache here.
+	public static <T> T singleton(final Class<?> clazz, final Object... params) {
+		return singleton(clazz.getName(), params);
+	}
+
 	public static <T> T singleton(final String className, final Object... params) {
 		T ret = CACHE.get(className);
 		if (null == ret) {

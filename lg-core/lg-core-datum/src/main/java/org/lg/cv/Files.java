@@ -17,4 +17,9 @@ public interface Files {
 		/** **/
 		String CONNECTOR = "connector" + Ext.DOT_PROP;
 	}
+	
+	interface Folder{
+		/** **/
+		String RULES = "rules";
+	}
 }

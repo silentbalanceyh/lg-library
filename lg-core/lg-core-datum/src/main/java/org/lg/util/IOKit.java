@@ -2,6 +2,7 @@ package org.lg.util;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileFilter;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -9,6 +10,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.lg.ce.json.JsonArray;
 import org.lg.ce.json.JsonObject;
@@ -16,6 +19,8 @@ import org.lg.cv.Defaults;
 import org.lg.cv.Encodings;
 import org.lg.cv.Symbols;
 import org.lg.log.Log;
+import org.lg.plug.io.DirectoryOnlyFilter;
+import org.lg.plug.io.FileOnlyFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,14 +33,17 @@ import net.sf.oval.guard.Guarded;
 @Guarded
 public final class IOKit {
 	private static final Logger LOGGER = LoggerFactory.getLogger(IOKit.class);
+
 	/** **/
-	public static JsonArray getJArray(@NotNull @NotEmpty @NotBlank final String filename){
+	public static JsonArray getJArray(@NotNull @NotEmpty @NotBlank final String filename) {
 		return new JsonArray(getString(filename));
 	}
+
 	/** **/
-	public static JsonObject getJObject(@NotNull @NotEmpty @NotBlank final String filename){
+	public static JsonObject getJObject(@NotNull @NotEmpty @NotBlank final String filename) {
 		return new JsonObject(getString(filename));
 	}
+
 	/** **/
 	public static String getString(@NotNull @NotEmpty @NotBlank final String filename) {
 		final InputStream in = getFile(filename, null);
@@ -61,7 +69,7 @@ public final class IOKit {
 				if (null != in) {
 					in.close();
 				}
-				if (null != reader){
+				if (null != reader) {
 					reader.close();
 				}
 			} catch (IOException ex) {
@@ -83,10 +91,12 @@ public final class IOKit {
 		}
 		return url;
 	}
+
 	/** **/
-	public static InputStream getFile(@NotNull @NotEmpty @NotBlank final String filename){
+	public static InputStream getFile(@NotNull @NotEmpty @NotBlank final String filename) {
 		return getFile(filename, null);
 	}
+
 	/** **/
 	public static InputStream getFile(@NotNull @NotEmpty @NotBlank final String filename, final Class<?> clazz) {
 		// 1.assign reference to searchCls
@@ -100,6 +110,52 @@ public final class IOKit {
 		if (null == ret)
 			ret = readStream(filename, searchCls);
 		return ret;
+	}
+
+	/** **/
+	public static URL getURL(final String fileName) {
+		URL retURL = null;
+		final ClassLoader loader = Thread.currentThread().getContextClassLoader();
+		if (null != loader) {
+			retURL = loader.getResource(fileName);
+		}
+		if (null == retURL) {
+			retURL = IOKit.class.getResource(fileName);
+		}
+		return retURL;
+	}
+	/** **/
+	public static List<String> listFiles(final String folder) {
+		return list(folder, false);
+	}
+	/** **/
+	public static List<String> listDirectories(final String folder) {
+		return list(folder, true);
+	}
+
+	private static List<String> list(final String folder, final boolean isDirectory) {
+		final URL url = getURL(folder);
+		final List<String> retList = new ArrayList<>();
+		if (null != url) {
+			final File file = new File(url.getFile());
+			if (file.isDirectory() && file.exists()) {
+				// 设置Filter信息
+				FileFilter filter = null;
+				if (isDirectory) {
+					filter = Instance.singleton(DirectoryOnlyFilter.class);
+				} else {
+					filter = Instance.singleton(FileOnlyFilter.class);
+				}
+				// Filter不可为空
+				if (null != filter) {
+					final File[] files = file.listFiles(filter);
+					for (final File item : files) {
+						retList.add(item.getName());
+					}
+				}
+			}
+		}
+		return retList;
 	}
 
 	private static InputStream readStream(final String filename, final Class<?> clazz) {

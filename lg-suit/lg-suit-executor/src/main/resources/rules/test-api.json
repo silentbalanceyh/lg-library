@@ -1,0 +1,12 @@
+{
+	"source":{
+		"connector":"Babelway",
+		"action": "ticket"
+	},
+	"target":{
+		"class": "com.sco.Document",
+		"type": "OBJECT"
+	},
+	"mapping":{
+	}
+}
