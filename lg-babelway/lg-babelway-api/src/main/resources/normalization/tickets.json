@@ -31,5 +31,8 @@
 			"_5_3_PLANNED_CLEANING_OF_DORMANT_USERS",
 			"_5_4_INVITATION_EXPIRED"
 		]
+	},
+	"MIN":{
+		"start":0
 	}
 }

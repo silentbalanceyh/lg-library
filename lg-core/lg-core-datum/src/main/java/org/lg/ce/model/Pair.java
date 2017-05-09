@@ -20,4 +20,9 @@ public class Pair implements Serializable {
 	public Object getValue() {
 		return value;
 	}
+
+	@Override
+	public String toString() {
+		return "Pair [key=" + key + ", value=" + value + "]";
+	}
 }

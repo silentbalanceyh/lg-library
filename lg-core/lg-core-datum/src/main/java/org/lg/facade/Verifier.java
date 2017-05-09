@@ -14,5 +14,7 @@ public interface Verifier {
 		String REQUIRED = "REQUIRED";
 		// In
 		String IN = "IN";
+		// Range
+		String MIN = "MIN";
 	}
 }
