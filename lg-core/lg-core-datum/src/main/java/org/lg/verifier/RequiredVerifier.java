@@ -21,9 +21,9 @@ public class RequiredVerifier implements Verifier {
 		// 1.Extract keys
 		final Set<String> inputes = input.keys();
 		// 2.Extract required rule from definition
-		final AbstractException error = FunVerifier.verify(definition, Names.REQUIRED, (item) -> {
+		final AbstractException error = FunVerifier.<String>verify(definition, Names.REQUIRED, (item) -> {
 			// item -> field name from ["field1","field2"]
-			final String field = item.toString();
+			final String field = item;
 			AbstractException inner = null;
 			// 3.Checked condition
 			if (!inputes.contains(field)) {

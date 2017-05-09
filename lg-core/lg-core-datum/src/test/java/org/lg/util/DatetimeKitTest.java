@@ -10,7 +10,7 @@ public class DatetimeKitTest {
 	public void testDate(){
 		Date date = DatetimeKit.toDate("2017-02-03T20:58:00.000Z");
 		System.out.println(date);
-		date = DatetimeKit.toDate("XXXX");
+		date = DatetimeKit.toDate("2017-04-05");
 		System.out.println(date);
 	}
 }

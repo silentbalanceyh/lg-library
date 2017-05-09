@@ -60,7 +60,8 @@ public class TicketNormalizerTest {
 			} else {
 				Log.info(LOGGER, "Expected Failure: " + file);
 			}
-		}
+		}		
+		Log.info(LOGGER, "-------------------------End: " + file + "------------------");
 	}
 
 	private List<NormalizerException> execute(final String flag) throws AbstractException {

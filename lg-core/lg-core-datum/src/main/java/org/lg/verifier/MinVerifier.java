@@ -17,20 +17,16 @@ public class MinVerifier implements Verifier {
 
 	@Override
 	public AbstractException verify(final ParamsMap input, final JsonObject definition) {
-		// 1.Extract in rule from definition
-		AbstractException error = FunVerifier.verify(definition, Names.MIN, (item) -> {
-			// 2.item -> Pair extracted from JsonObject one key = value
-			final Pair pair = (Pair) item;
-			final String field = pair.getKey();
-			final Integer actual = input.get(field);
-			final Object expected = pair.getValue();
-			// 3.Check the limitation
-			AbstractException inner = null;
-			if (null != actual && Integer.valueOf(expected.toString()) > actual) {
-				inner = new RangeException(field, actual, expected.toString(), "Unlimited");
-				Log.tsError(LOGGER, inner);
-			}
-			return inner;
+
+		AbstractException error = FunVerifier.<Pair>verify(definition, Names.MIN, (item) -> {
+			return FunVerifier.<Integer, Integer>verify(item, input, (field, actual, expected) -> {
+				AbstractException inner = null;
+				if (expected > actual) {
+					inner = new RangeException(field, actual, expected.toString(), "Unlimited");
+					Log.tsError(LOGGER, inner);
+				}
+				return inner;
+			});
 		});
 		return error;
 	}

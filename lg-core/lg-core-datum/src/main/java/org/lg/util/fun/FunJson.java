@@ -8,35 +8,33 @@ import org.lg.fun.robject.FnObject;
 
 @SuppressWarnings("unchecked")
 public final class FunJson {
-	
-	public static <T> T exec(final JsonArray array, final FnObject fun, final Class<T> clazz) {
-		T reference = null;
+
+	public static <I, O> O exec(final JsonArray array, final FnObject<I, O> fun) {
+		O reference = null;
 		final int size = array.size();
 		for (int idx = Defaults.INDEX; idx < size; idx++) {
 			final Object value = array.getValue(idx);
 			if (null != value) {
-				final Object ret = fun.execute(value);
-				if (null != ret && clazz.isInstance(ret)) {
-					reference = (T) ret;
-					break;
-				}
+				final I args = (I) value;
+				reference = fun.execute(args);
+				// Capture the first result of iteration
+				if(null != reference) break;
 			}
 		}
 		return reference;
 	}
 
-	public static <T> T exec(final JsonObject object, final FnObject fun, final Class<T> clazz) {
-		T reference = null;
+	public static <I, O> O exec(final JsonObject object, final FnObject<Pair, O> fun) {
+		O reference = null;
 		for (final String field : object.fieldNames()) {
 			final Object value = object.getValue(field);
 			if (null != value) {
 				// Pair for each JsonObject field = value
-				final Pair pair = new Pair(field, value);
-				final Object ret = fun.execute(pair);
-				if (null != ret && clazz.isInstance(ret)) {
-					reference = (T) ret;
-					break;
-				}
+				final I args = (I) value;
+				final Pair pair = new Pair(field, args);
+				reference = fun.execute(pair);
+				// Capture the first result of iteration
+				if(null != reference) break;
 			}
 		}
 		return reference;

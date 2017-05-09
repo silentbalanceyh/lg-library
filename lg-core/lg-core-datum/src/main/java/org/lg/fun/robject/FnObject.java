@@ -1,7 +1,7 @@
 package org.lg.fun.robject;
 
 @FunctionalInterface
-public interface FnObject {
+public interface FnObject<I, O> {
 	// Function of object
-	Object execute(Object item);
+	O execute(I item);
 }
