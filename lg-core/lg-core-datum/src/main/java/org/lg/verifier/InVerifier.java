@@ -8,6 +8,7 @@ import org.lg.facade.Verifier;
 import org.lg.hors.AbstractException;
 import org.lg.hors.core.NotInException;
 import org.lg.log.Log;
+import org.lg.util.StringKit;
 import org.lg.util.component.FunVerifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,9 +26,9 @@ public class InVerifier implements Verifier{
 			final String field = pair.getKey();
 			final String actual = input.get(field);
 			final JsonArray expected = (JsonArray)(pair.getValue());
-			// 3.Is In ?
+			// 3.Is In ? Be care about that this verifier should verify optional "actual"
 			AbstractException inner = null;
-			if(!expected.contains(actual)){
+			if(!expected.contains(actual) && StringKit.notNull(actual)){
 				inner = new NotInException(field, actual, expected);
 				Log.tsError(LOGGER, inner);
 			}

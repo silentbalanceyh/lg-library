@@ -9,7 +9,7 @@ import org.lg.verifier.InVerifier;
 import org.lg.verifier.RequiredVerifier;
 
 // Default package and could only be used here.
-class VerifierSelector {
+class VerifierTool {
 
 	private static final ConcurrentMap<String, Verifier> VERIFIERS = new ConcurrentHashMap<>();
 

@@ -28,7 +28,7 @@ public abstract class AbstractNormalizer implements Normalizer {
 	private void execVerify(ParamsMap params, final JsonObject definition) throws AbstractException {
 		// Each rule, same workflow
 		for (final String key : definition.fieldNames()) {
-			final Verifier verifier = VerifierSelector.select(key);
+			final Verifier verifier = VerifierTool.select(key);
 			AbstractException error = verifier.verify(params, definition);
 			if (null != error) {
 				// Error replacement
