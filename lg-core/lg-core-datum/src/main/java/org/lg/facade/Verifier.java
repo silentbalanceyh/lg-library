@@ -16,5 +16,7 @@ public interface Verifier {
 		String IN = "IN";
 		// Range
 		String MIN = "MIN";
+		// Time
+		String TIME = "TIME";
 	}
 }

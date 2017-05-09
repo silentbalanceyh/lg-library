@@ -8,6 +8,7 @@ import org.lg.util.Instance;
 import org.lg.verifier.InVerifier;
 import org.lg.verifier.MinVerifier;
 import org.lg.verifier.RequiredVerifier;
+import org.lg.verifier.TimeVerifier;
 
 // Default package and could only be used here.
 class VerifierTool {
@@ -19,6 +20,7 @@ class VerifierTool {
 		VERIFIERS.put(Verifier.Names.REQUIRED, Instance.singleton(RequiredVerifier.class));
 		VERIFIERS.put(Verifier.Names.IN, Instance.singleton(InVerifier.class));
 		VERIFIERS.put(Verifier.Names.MIN, Instance.singleton(MinVerifier.class));
+		VERIFIERS.put(Verifier.Names.TIME, Instance.singleton(TimeVerifier.class));
 	}
 
 	public static Verifier select(final String name) {
