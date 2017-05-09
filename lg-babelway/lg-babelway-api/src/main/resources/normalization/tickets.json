@@ -1,7 +1,7 @@
 {
 	"IN":{
 		"status":["OPEN","CLOSED"],
-		"severify":["HIGH","MEDIUM","LOW","INFO"],
+		"severity":["HIGH","MEDIUM","LOW","INFO"],
 		"type":[
 			"_0_MONITORING",
 			"_1_MESSAGE_PROCESSING_ISSUES",
