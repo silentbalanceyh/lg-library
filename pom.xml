@@ -18,6 +18,7 @@
 		<module>lg-babelway</module>
 		<module>lg-ubl</module>
 		<module>lg-suit</module>
+		<module>lg-scanner</module>
 	</modules>
 	<properties>
 		<!-- Default Properties -->
