@@ -1,0 +1,41 @@
+{
+  "itemsPerPage" : 25,
+  "itemCount" : 3,
+  "numPages" : 1,
+  "pageId" : 0,
+  "Connection" : [ {
+    "ConnectionId" : "1ec4f6ed-b929-5afc-84ac-639ef72cb54e",
+    "ConnectionType" : "TradeshiftConnection",
+    "FromCompanyAccountId" : "fb176825-d5dd-45cb-ac72-978f2a76f85f",
+    "CompanyName" : "中国通",
+    "Country" : "CN",
+    "AcceptingDocumentProfiles" : [ ],
+    "FirstName" : "mario",
+    "LastName" : "mu",
+    "CompanyAccountId" : "0fe6314f-1203-4d1c-9515-ba8296f1e2e1",
+    "Email" : "mfm@vip.qq.com",
+    "State" : "ACCEPTED",
+    "Identifiers" : [ ],
+    "AddressLines" : [ ]
+  }, {
+    "ConnectionId" : "f216f277-d2fb-47ea-b0e9-c7063053d277",
+    "ConnectionType" : "ExternalConnection",
+    "FromCompanyAccountId" : "fb176825-d5dd-45cb-ac72-978f2a76f85f",
+    "CompanyName" : "重庆桥梁科技有限公司",
+    "Country" : "SM",
+    "AcceptingDocumentProfiles" : [ ],
+    "Email" : "qiaoliang@qiao.liang.com",
+    "Identifiers" : [ ],
+    "AddressLines" : [ ]
+  }, {
+    "ConnectionId" : "7bee8391-ef0d-4b0e-8594-d69ec4131576",
+    "ConnectionType" : "ExternalConnection",
+    "FromCompanyAccountId" : "fb176825-d5dd-45cb-ac72-978f2a76f85f",
+    "CompanyName" : "重庆航天航空科技有限公司",
+    "Country" : "TJ",
+    "AcceptingDocumentProfiles" : [ ],
+    "Email" : "hangtian@hangtian.co",
+    "Identifiers" : [ ],
+    "AddressLines" : [ ]
+  } ]
+}

@@ -21,7 +21,7 @@ public class ApiLocator {
 			final OAuthSecrets secrets = new OAuthSecrets().consumerSecret(TradeshiftConfig.consumerSecret())
 					.tokenSecret(TradeshiftConfig.tokenSecret());
 			final OAuthClientFilter filter = new OAuthClientFilter(client.getProviders(), params, secrets);
-			final String uri = MessageFormat.format(TradeshiftConfig.endpoint(), "external/network/connections");
+			final String uri = MessageFormat.format(TradeshiftConfig.endpoint(), "external/documents");
 			final WebResource res = client.resource(uri);
 			res.addFilter(filter);
 			final String networkResult = res.header(TradeshiftInfo.Header.KEY_TENANT_ID, TradeshiftConfig.tenantId())
